@@ -168,6 +168,7 @@ func uploadCurr(w http.ResponseWriter, r *http.Request) {
 	}
 	println("[ INF ]", "method uploadCurr is run", date, code)
 
+	defer rows.Close()
 	var RatesOut []structs.RatesOut
 
 	for rows.Next() {
