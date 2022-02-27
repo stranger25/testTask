@@ -55,7 +55,9 @@ func main() {
 	route.Use(commonMiddleware)
 
 	route.HandleFunc("/currency/save/{date}", downloadCurr).Methods("GET")
-	route.HandleFunc("/currency/{date}/{*code}", uploadCurr).Methods("GET")
+	s := route.PathPrefix("/currency").Subrouter()
+	s.HandleFunc("/{date}", uploadCurr).Methods("GET")
+	s.HandleFunc("/{date}/{code}", uploadCurr).Methods("GET")
 	http.Handle("/", route)
 
 	println("[ INF ]", "start server on port:", Cfg.Server.Port)
