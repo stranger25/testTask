@@ -195,7 +195,7 @@ func writeDB(data *structs.Rates) {
 	}
 	for i, item := range data.Item {
 
-		value, err := strconv.ParseFloat(item.Description, 2)
+		value, err := strconv.ParseFloat(item.Description, 32)
 		if err != nil {
 			ErrLog("[ ERR ] convert to float" + err.Error())
 		} else {
