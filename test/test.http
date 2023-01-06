@@ -1,0 +1,5 @@
+GET http://127.0.0.1:5005/currency/save/23.10.2021
+###
+GET http://127.0.0.1:5005/currency/23.10.2021/USD
+###
+GET http://127.0.0.1:5005/currency/23.10.2021
