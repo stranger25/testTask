@@ -58,27 +58,3 @@ func (r *Repository) GetRate(date time.Time, code string) (*[]model.RatesOut, er
 
 	return &RatesOut, nil
 }
-
-/*
-func (r *Repository) GetRate(date, code string) (*[]model.RatesOut, error) {
-	query := "select title, code, value, a_date from R_CURRENCY where a_date = ?"
-	params := []interface{}{date}
-	if len(code) != 0 {
-		query += " and code = ?"
-		params = append(params, code)
-	}
-	rows, err := r.Db.Query(query, params...)
-	if err != nil {
-		r.Log.ErrLog("[ ERR ] data query" + err.Error())
-		return nil, err
-	}
-	println("[ INF ]", "method uploadCurr is run", date, code)
-
-	defer rows.Close()
-	var RatesOut []model.RatesOut
-
-	for rows.Next() {
-		var Rates model.RatesOut
-		rows.Scan(&Rates.Title, &Rates.Code, &Rates.Value, &Rates.Date)
-		if err != nil {
-*/
